@@ -19,7 +19,7 @@ public class MergeSort {
         int i=0, j=0;
         int k = left;
 
-        while(i<s1&&j<s2) {
+        while(i<s1 && j<s2) {
            if (leftArray[i] <= rightArray[j]) {
                 arr[k] = leftArray[i];
                 ++i;
@@ -31,27 +31,23 @@ public class MergeSort {
         }
         while (i < s1) {
             arr[k] = leftArray[i];
-            i++;
-            k++;
+            ++i;
+            ++k;
         }
 
         while (j < s2) {
             arr[k] = rightArray[j];
-            j++;
-            k++;
+            ++j;
+            ++k;
         }
     }
 
    static void sort(int[] arr, int left, int right){
         if (left < right) {
-            // Find the middle point
             int mid = (left+right)/2;
-
-            // Sort first and second halves
             sort(arr, left, mid);
             sort(arr , mid+1, right);
 
-            // Merge the sorted halves
             merge(arr, left, mid, right);
         }
     }
